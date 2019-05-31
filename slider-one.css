@@ -30,18 +30,19 @@ body{
     z-index: 2;
 }
 .slide-area {
-    width: 4140px;
-    position: absolute;
-    left: 0;
+    width: 1380px;
     -webkit-transition:all 1.0s ease-in-out;
   -moz-transition:all 1.0s ease-in-out;
   -o-transition:all 1.0s ease-in-out;
   transition:all 1.0s ease-in-out;
+  position: relative;
 }
 .slide-area .slider-item {
-    float: left;
+    position: absolute;
     width: 1380px;
     height: 700px;
+    left: 0;
+    top: 0;
 }
 .slider-image {
     display: flex;
@@ -55,19 +56,26 @@ body{
   height: 700px;
 }
 .slider-image span:nth-child(1){
-    background-position: 0;
+    background-position: 250px;
+    background-repeat: no-repeat;
+    opacity: 0;
 }
 
 .slider-image span:nth-child(2){
-    background-position: -460px;
+    background-position: 250px;
+    background-repeat: no-repeat;
+    opacity: 0;
 }
 .slider-image span:nth-child(3){
-    background-position: -920px;
+    background-position: 250px;
+    background-repeat: no-repeat;
+    opacity: 0;
 }
 .menu-section {
     position: absolute;
     width: 100%;    
     bottom: 20px;
+    z-index: 3;
 }
 .menu-section ul, .menu-section ul li{
     list-style: none;
@@ -92,7 +100,12 @@ body{
 .menu-section ul li a:hover{
     background: rgb(77, 0, 77);
 }
-
+.active{
+  z-index: 2;
+}
+.inactive{
+  z-index: 1;
+}
 
 
 

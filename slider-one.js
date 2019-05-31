@@ -6,26 +6,45 @@ function sliderOne(){
         var slideno = parseInt(buttonNumber);
         var allSlide = $(".slide-area .slider-item");
         var currentSlide = $(".slide-area .slider-item:nth-child("+slideno+")");
-        var currentImage =  $(".slide-area .slider-item:nth-child("+slideno+") span").attr("style");
-        $(".duplicate_image").attr("style", currentImage);
         allSlide.each(function(index){
             var allSlideNo = index+1;
             if(allSlideNo != slideno) {
                 $(this).removeClass("active");
-                $(this).find(".element-animation-lr").removeClass("element-animation-lr");
+                $(this).addClass("inactive");                
+            }else{
+                $(this).removeClass("inactive");
+                $(this).addClass("active");
             }
         });
         var p = currentSlide.position();
         // $(".slide-area").css("left",("-" + p.left + "px"));
-        $(currentSlide).addClass("active"); 
+        // $(currentSlide).addClass("active"); 
         var time = 0;
         $(currentSlide).find(".slider-image span").reverse().each(function(index){
-            var $el = $(this);
+            var $el = $(this);            
             setTimeout(function() {
-                $el.addClass('element-animation-lr');
+                if(index==0){
+                    $el.animate({
+                         backgroundPositionX: '-920',
+                         opacity: '1'
+                    });
+                }
+                if(index==1){                    
+                    $el.animate({
+                        backgroundPositionX: '-460',
+                        opacity: '1'
+                   });
+                }
+                if(index==2){
+                    $el.animate({
+                        backgroundPositionX: '0',
+                        opacity: '1'
+                   });
+                }
             }, time);
-            time += 200;
-        })
+            time += 50;
+        });
+        
     }
 
     $(".menu-section li a").mouseover(function(){
