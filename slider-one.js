@@ -17,7 +17,6 @@ function sliderOne(){
         });
         var p = currentSlide.position();
         // $(".slide-area").css("left",("-" + p.left + "px"));
-        alert();
         $(currentSlide).addClass("active"); 
         var time = 0;
         $(currentSlide).find(".slider-image span").reverse().each(function(index){
